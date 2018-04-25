@@ -7,7 +7,7 @@
 5. stub out interface
 6. start making things real
 7. discover objects
-8. program
+8. program all the things!
 
 ## Installation
 
