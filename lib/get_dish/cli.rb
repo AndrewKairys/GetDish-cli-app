@@ -5,8 +5,30 @@ class GetDish::CLI
     # Priming
     GetDish::Scraper.new.scrape_dishes
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "Looking for something Keto friendly?"
-    engage
+    puts <<~HEREDOC
+          Looking for something Keto friendly?
+          Please type random, if you'd like to
+          select a dish randomly by type. Or
+          select list, and list of dishes by
+          type will appear!
+        HEREDOC
+    answer = gets.strip.downcase
+
+      if ["y"].include?(answer)
+        go_to_recipe(dish)
+      elsif ["n"].include?(answer)
+        engage
+      elsif ["exit"].include?(answer)
+        goodbye
+      else
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts "I don't understand that answer."
+        engage
+      end
+  end
+
+
+
   end
 
   def engage
@@ -71,12 +93,13 @@ class GetDish::CLI
      system("xdg-open '#{dish.url}'")
    end
 
-  # def list_all_dishes(type)
-  #   GetDish::Dish.all.each_with_index do |dish, i|
-  #     puts "#{i+1} #{dish.title}"
-  #   end
-  # end
-  #
+  def list_all_dishes_by_type(type)
+    type_list = GetDish::Dish.all.select { |e| e.type == "#{type}"}
+    type_list.each_with_index do |dish, i|
+      puts "#{i+1} #{dish.title}"
+    end
+  end
+
   def goodbye
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "Stop by tomorrow for more dishes!"
