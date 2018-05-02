@@ -3,7 +3,7 @@ class GetDish::Scraper
   def initialize(url = nil)
     @url = url
   end
-
+  
   def scrape_dishes
     #scrape a dish based on user input of types: Meal, Snack, Treat, Drink.
     html = "https://ketodash.com/recipe"
@@ -18,13 +18,11 @@ class GetDish::Scraper
       dish.protein = child.css("li.list-group-item")[1].text.split.pop.to_i
       dish.fat = child.css("li.list-group-item")[2].text.split.pop.to_i
       dish.net_carbs = child.css("li.list-group-item")[3].text.split.pop.to_i
-      dish.url = html + child.css("h5 a").attr("href").text
+      dish.url = html + child.css("h5 a").attr("href").text.gsub("/recipe", "")
 
       #binding.pry
       dish.save
     end
   end
-
-
 
 end
