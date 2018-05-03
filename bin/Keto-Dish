@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require './lib/environment'
+
+KetoDish::CLI.new.call
+
+#puts "Working"
