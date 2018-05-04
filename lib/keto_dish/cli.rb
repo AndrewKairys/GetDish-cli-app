@@ -43,12 +43,6 @@ class KetoDish::CLI
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     input = gets.strip.downcase
 
-      # Probably need to send input to a validation method
-      # if input == "meal" || "snack" || "treat" || "drink"
-      #   dishes = dish_by_type(input).sample(10)
-      # else
-      #   start_list
-      # end
     dishes = dish_by_type(input).sample(10)
 
     list_dishes(dishes)
@@ -56,9 +50,11 @@ class KetoDish::CLI
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "Please enter which number you'd like more information on."
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    input = gets.strip.to_i
+    input = gets.strip
 
-    return_table(dishes[input-1])
+    number = dish_list_helper(input)
+
+    return_table(dishes[number-1])
 
     puts "Would you like to go to the recipe for this dish: y or n?"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -134,10 +130,22 @@ class KetoDish::CLI
         KetoDish::Dish.all.select { |e| e.type == "Drink"}
      when "treat"
         KetoDish::Dish.all.select { |e| e.type == "Treat"}
+      else
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts "I don't understand that answer."
+        call
      end
    end
 
-
+   def dish_list_helper(input)
+     if input.to_i > 0
+       input.to_i
+     else
+       puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+       puts "I don't understand that answer."
+       call
+     end
+   end
 
    def go_to_recipe(dish)
      system("xdg-open '#{dish.url}'")
