@@ -61,7 +61,7 @@ class KetoDish::CLI
     answer = gets.strip.downcase
 
       if ["y"].include?(answer)
-        go_to_recipe(dishes[input])
+        go_to_recipe(dishes[number-1])
       elsif ["n"].include?(answer)
         call
       elsif ["exit"].include?(answer)
