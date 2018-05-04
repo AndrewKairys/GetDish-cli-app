@@ -138,7 +138,7 @@ class KetoDish::CLI
    end
 
    def dish_list_helper(input)
-     if input.to_i > 0
+     if input.to_i.between?(1, 10)
        input.to_i
      else
        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -160,7 +160,9 @@ class KetoDish::CLI
    end
 
   def goodbye
-    puts "Stop by tomorrow for more dishes!"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "Stop by soon for more dishes!"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     exit
   end
 
