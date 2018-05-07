@@ -1,33 +1,16 @@
-# CLIProject
+# Keto-Dish
 
-1. Plan your gem, imagine your interface
-2. Start with project structure - google
-3. Start with the entry point - the file run
-4. force that to build the CLI interface
-5. stub out interface
-6. start making things real
-7. discover objects
-8. program all the things!
+### This
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Currently working on making this an official Ruby Gem. (but when that does happen)
 
-```ruby
-gem 'CLI_Project'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install CLI_Project
+    $ gem install keto-dish
 
 ## Usage
 
-TODO: Write usage instructions here
+Once gem is set up will update.
 
 ## Development
 
@@ -37,7 +20,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/CLI_Project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AndrewKairys/keto-dish-cli-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
