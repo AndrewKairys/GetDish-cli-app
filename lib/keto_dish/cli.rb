@@ -107,8 +107,7 @@ class KetoDish::CLI
       end
   end
 
-  def return_table(input)
-    dish = input
+  def return_table(dish)
       puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       puts "#{dish.name}"
       puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -123,13 +122,13 @@ class KetoDish::CLI
   def dish_by_type(input)
     case input
      when "meal"
-        KetoDish::Dish.all.select { |e| e.type == "Meal"}
+        KetoDish::Dish.all.select { |e| e.dish_type == "Meal"}
      when "snack"
-        KetoDish::Dish.all.select { |e| e.type == "Snack"}
+        KetoDish::Dish.all.select { |e| e.dish_type == "Snack"}
      when "drink"
-        KetoDish::Dish.all.select { |e| e.type == "Drink"}
+        KetoDish::Dish.all.select { |e| e.dish_type == "Drink"}
      when "treat"
-        KetoDish::Dish.all.select { |e| e.type == "Treat"}
+        KetoDish::Dish.all.select { |e| e.dish_type == "Treat"}
       else
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts "I don't understand that answer."
@@ -148,7 +147,7 @@ class KetoDish::CLI
    end
 
    def go_to_recipe(dish)
-     system("xdg-open '#{dish.url}'")
+     system("open '#{dish.url}'")
      call
    end
 
