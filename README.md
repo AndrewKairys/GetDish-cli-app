@@ -1,7 +1,5 @@
 # Keto-Dish
 
-### This
-
 ## Installation
 
 Currently working on making this an official Ruby Gem. (but when that does happen)
